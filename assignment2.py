@@ -4,13 +4,15 @@ import pandas as pd
 
 salary_data = pd.read_csv("C:/Users/check/OneDrive/Desktop/salary_data.csv")
 
+# Create an employee function by defining a function that takes an employee_name
 def get_employee_details(name):
     try:
         employee_details = salary_data[salary_data['Name'] == name].to_dict(orient='records')[0]
         return employee_details
     except IndexError:
         return f"No employee found with the name {name}"
-    
+
+# Create a dictionary to store salary data to names as keys and other details    
     employee_details_dict = {}
 
 for index, row in salary_data.iterrows():
@@ -24,9 +26,8 @@ for index, row in salary_data.iterrows():
         "BasePay": row.iloc[2],  # Assuming the fourth column is the Base Pay
         # Add other relevant details as needed
     }
+# In anticipation of errors, create error handling issues  
 
-# Now you can use the dictionary for analysis, manipulation, etc.
-    
 def get_employee_details(employee_name):
     global salary_data
 
@@ -40,7 +41,7 @@ def get_employee_details(employee_name):
         print(f"Error: Invalid key '{e}' in employee data.")
         return None
 
-# Use try-except blocks in other functions as needed
+# Use try-except blocks in other functions as needed to create export employee details
     
 import os
 import csv
